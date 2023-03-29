@@ -32,10 +32,10 @@ int func_string(va_list _printf_, int *idx)
 
 	s = va_arg(_printf_, char *);
 	len = strlen(s);
-	
+
 	if (s == NULL)
 
-		return (write(1, "(NULL)", 6));
+		return (write(1, "(null)", 6));
 
 	for (; *s != '\0'; s++)
 	{
