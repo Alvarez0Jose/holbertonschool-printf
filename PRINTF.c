@@ -14,9 +14,8 @@ int _printf(const char *format, ...)
 	va_list _printf_;
 	int idx = 0;
 	const char *P;
-	
-	va_start(_printf_, format);
 
+	va_start(_printf_, format);
 	if (_printf_ == NULL || format == NULL)
 		return (-1);
 	for (P = format; *P != '\0'; P++)
@@ -33,7 +32,7 @@ int _printf(const char *format, ...)
 					func_string(_printf_, &idx);
 					break;
 				case '%':
-					func_percent( &idx);
+					func_percent(&idx);
 					break;
 				case 'd': case 'i':
 					func_int(_printf_, &idx);
@@ -42,7 +41,6 @@ int _printf(const char *format, ...)
 					write(1, &idx, 1);
 					write(1, P, 1);
 					idx += 2;
-
 			}
 		}
 		else

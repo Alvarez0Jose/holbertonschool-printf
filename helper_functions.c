@@ -28,12 +28,12 @@ int func_string(va_list _printf_, int *idx)
 {
 	const char *s;
 	int len;
-	
+
 	s = va_arg(_printf_, char *);
 	if (s == NULL)
 		s = "(null)";
 	len = strlen(s);
-	
+
 	for (; *s != '\0'; s++)
 	{
 		write(1, s, 1);
@@ -51,6 +51,7 @@ int func_string(va_list _printf_, int *idx)
 int func_percent(int *idx)
 {
 	char percent = '%';
+
 	write(1, &percent, 1);
 	(*idx)++;
 	return (1);
@@ -70,14 +71,14 @@ int func_int(va_list _printf_, int *idx)
 	int t;
 	int d = 1;
 	char dig;
-	
+
 	if (n < 0)
 	{
 		write(1, "-", 1);
 		counter++;
 		n = -n;
 	}
-	
+
 	t = n;
 
 	while (t >= 10)
