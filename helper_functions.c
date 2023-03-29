@@ -37,7 +37,7 @@ int func_string(va_list _printf_, int *idx)
 	{
 		write(1, s, 1);
 		(*idx)++;
-	
+
 	}
 	return (len);
 }
