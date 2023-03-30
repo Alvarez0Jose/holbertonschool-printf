@@ -27,19 +27,17 @@ int func_char(va_list _printf_, int *idx)
 int func_string(va_list _printf_, int *idx)
 {
 	const char *s;
-	int len;
 
 	s = va_arg(_printf_, char *);
 	if (s == NULL)
-		s = "(null)";
-	len = strlen(s);
-
-	for (; *s != '\0'; s++)
 	{
-		write(1, s, 1);
+		s = "(null)";
 	}
-	(*idx)++;
-	return (len);
+
+		write(1, s, strlen(s));
+		(*idx)++;
+
+	return (strlen(s));
 }
 
 /**
@@ -68,7 +66,8 @@ int func_int(va_list _printf_, int *idx)
 {
 	int n = va_arg(_printf_, int);
 	int counter = 0;
-	int t;
+	 int t;
+
 	int d = 1;
 	char dig;
 
@@ -79,7 +78,10 @@ int func_int(va_list _printf_, int *idx)
 		n = -n;
 	}
 
+
 	t = n;
+	d = 1;
+
 
 	while (t >= 10)
 	{
