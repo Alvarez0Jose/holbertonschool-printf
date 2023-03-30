@@ -67,6 +67,7 @@ int func_int(va_list _printf_, int *idx)
 	int n = va_arg(_printf_, int);
 	int counter = 0;
 	 int t;
+
 	int d = 1;
 	char dig;
 
@@ -81,6 +82,7 @@ int func_int(va_list _printf_, int *idx)
 	t = n;
 	d = 1;
 
+
 	while (t >= 10)
 	{
 		t /= 10;
@@ -92,7 +94,6 @@ int func_int(va_list _printf_, int *idx)
 		dig = (n / d) % 10 + '0';
 		write(1, &dig, 1);
 		counter++;
-
 		d /= 10;
 	}
 	*idx += counter;
