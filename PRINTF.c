@@ -14,55 +14,41 @@ int _printf(const char *format, ...)
 	va_list _printf_;
 	int idx = 0;
 	const char *P;
-	char *buffer;
-	int buf_size = 1024;
-
-
-	buffer = malloc(buf_size * sizeof(char));
-	if (!buffer)
-		return (-1);
 
 	va_start(_printf_, format);
-
 	if (_printf_ == NULL || format == NULL)
 		return (-1);
-
 	for (P = format; *P != '\0'; P++)
 	{
-		if (idx >= buf_size - 1)
-		{
-			write(1, buffer, idx);
-			idx = 0;
-		}
 		if (*P == '%')
 		{
 			P++;
 			switch (*P)
 			{
 				case 'c':
-					func_char(_printf_, buffer, &idx);
+					func_char(_printf_, &idx);
 					break;
 				case 's':
-					func_string(_printf_, buffer, &idx);
+					func_string(_printf_, &idx);
 					break;
 				case '%':
-					func_percent(buffer, &idx);
+					func_percent(&idx);
 					break;
-				case 'd':
-				case 'i':
-					func_int(_printf_, buffer, &idx);
+				case 'd': case 'i':
+					func_int(_printf_, &idx);
 					break;
+				default:
+					write(1, &idx, 1);
+					write(1, P, 1);
+					idx += 2;
 			}
 		}
 		else
 		{
-			buffer[idx++] = *P;
+			write(1, P, 1);
+			idx++;
 		}
 	}
-	write(1, buffer, idx);
-	free(buffer);
-
 	va_end(_printf_);
-
 	return (idx);
 }

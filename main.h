@@ -7,9 +7,9 @@
 #include <string.h>
 
 int _printf(const char *format, ...);
-int func_char(va_list _printf_, char *buffer, int *idx);
-int func_string(va_list _printf_, char *buffer, int *idx);
-int func_percent(char *buffer, int *idx);
-int func_int(va_list _printf_, char *buffer, int *idx);
+int func_char(va_list _printf_, int *idx);
+int func_string(va_list _printf_, int *idx);
+int func_percent(int *idx);
+int func_int(va_list _printf_, int *idx);
 
 #endif
