@@ -38,14 +38,14 @@ int _printf(const char *format, ...)
 					func_int(_printf_, &idx);
 					break;
 				default:
-					write(1, &idx, 1);
-					write(1, P, 1);
+					putchar('%');
+					putchar(*P);
 					idx += 2;
 			}
 		}
 		else
 		{
-			write(1, P, 1);
+			putchar(*P);
 			idx++;
 		}
 	}
