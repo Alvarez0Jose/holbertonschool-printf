@@ -44,7 +44,7 @@ Example %i and %d:
 .TP
 int _printf(const char *format, ...)
 .TP
-_printf("A week has %d days and a month has %i.\n", digit);
+_printf("A week has %d days and a month has %i.", digit);
 .TP
 result: A week has 7 days and a month has 30.
 
@@ -55,7 +55,7 @@ Example %%:
 .TP
 int _printf(const char *format, ...)
 .TP
-_printf("the hoodie was 20%% off on discount.\n");
+_printf("the hoodie was 20%% off on discount.");
 .TP
 result: the hoodie was 20% off on discount.
 
@@ -66,7 +66,7 @@ Example %s:
 .TP
 int _printf(const char *format, ...);
 .TP
-_printf("%s\n", "I am freeeee!");
+_printf("%s", "I am freeeee!");
 .TP
 result: I am freeeee!
 
@@ -77,7 +77,7 @@ Example %c:
 
 int _printf(const char *format, ...);
 .TP
-_printf("%c is a compiled language\n", 'C');
+_printf("%c is a compiled language", 'C');
 .TP
 result: C is a compiled language
 
