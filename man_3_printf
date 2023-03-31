@@ -1,0 +1,89 @@
+.TH _PRINTF 1 "March 2023" "Version 1.0.0.1" "_printf man page"
+
+.SH NAME
+_PRINTF - Prints characters, strings, integers and percent symbol to the standard output.
+
+.SH SYNOPSIS
+\fB#include "main.h"\fR
+\fBint _printf(const char *format, ...);\fR
+
+.SH DESCRIPTION
+
+The '_printf' function is a custom implemtation of the 'printf' function in C that allows formatted printing to the standard output and other output streams. It takes a constant char pointer pointing to a format string and a variable number of arguments as inputs, and it returns an integer value that indicates the number of characters that are being printed. The format string that is being pointed to by *format specifies the format of the output and includes convertion specifications that are replaced with the values of the corresponding arguments. The convertion characters that are implemented in the '_printf' function are the following:
+-%%
+-%c
+-%s
+-%d and %i
+
+.SH OPTIONS
+.TP
+\-%%
+With this convertion character we can print the percent symbol to the standard output or other output streams succesfully without the function having undefined behaviour.
+
+.TP
+\-%c
+With this convertion character we can print single characters one by one to the standard output or other output streams.
+
+.TP
+\-%s
+With this convertion character we can print out strings to the standard output or other output streans. Note that %s expects a null terminated string as an argument. If the argument is not a null terminated string the behaviour of the program is undefined, meaning it could crash.
+
+.TP
+\-%d or %i
+with this covertion characters we can print out integers to the standard output or other output streams they are both equivalent meaning they output the same format. Note that %d and %i specify that an integer argument should be printed in decimal (base 10) format. The argument is expected to be of 'int' or a compatible integer type.
+
+.SH RETURN VALUE
+.TP
+Upon succesfull return, the function will return the number of characters printed excluding the null byte that is used to end strings. If an output error is encountered the function will return -1.
+
+.SH EXAMPLES
+.TP
+Example %i and %d:
+
+#include "main.h"
+.TP
+int _printf(const char *format, ...)
+.TP
+_printf("A week has %d days and a month has %i.", digit);
+.TP
+result: A week has 7 days and a month has 30.
+
+.TP
+Example %%:
+
+#include "main.h"
+.TP
+int _printf(const char *format, ...)
+.TP
+_printf("the hoodie was 20%% off on discount.");
+.TP
+result: the hoodie was 20% off on discount.
+
+.TP
+Example %s:
+
+#include "main.h"
+.TP
+int _printf(const char *format, ...);
+.TP
+_printf("%s", "I am freeeee!");
+.TP
+result: I am freeeee!
+
+.TP
+Example %c:
+
+#include "main.h"
+
+int _printf(const char *format, ...);
+.TP
+_printf("%c is a compiled language", 'C');
+.TP
+result: C is a compiled language
+
+.SH AUTHORS
+.TP
+This man page was written by:
+.TP
+MIGUEL MONTERO & JOSE ALVAREZ
+
